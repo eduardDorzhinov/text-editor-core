@@ -1,0 +1,143 @@
+$btn-size: 28px;
+
+.link-editor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  max-width: 400px;
+  width: 100%;
+  opacity: 0;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  transition: opacity 0.5s;
+  will-change: transform;
+
+  &__content {
+    width: 100%;
+    display: flex;
+    padding: 8px 12px;
+    gap: 6px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__input {
+    display: block;
+    width: calc(100% - $btn-size - $btn-size);
+    padding: 6px 12px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: rgb(5, 5, 5);
+    border: 0;
+    outline: 0;
+    position: relative;
+    font-family: inherit;
+
+    &::placeholder {
+      color: rgba(5, 5, 5, 0.35);
+    }
+  }
+
+  &__link_wrap {
+    display: block;
+    // flex:1 + min-width:0 — без этого длинный URL (intrinsic content)
+    // расширяет flex-child за рамки .link-editor__content, и ссылка
+    // визуально уезжает наружу под кнопки.
+    flex: 1;
+    min-width: 0;
+    padding: 6px 12px;
+  }
+
+  &__link {
+    display: block;
+    box-sizing: border-box;
+    max-width: 100%;
+    border-radius: 15px;
+    font-size: 15px;
+    border: 0;
+    outline: 0;
+    position: relative;
+    font-family: inherit;
+    // URL обычно одна сплошная строка без пробелов — break-word не
+    // ломает в середине «слова», поэтому используем overflow-wrap:
+    // anywhere (или word-break: break-all). Это даёт перенос в любом
+    // месте URL, чтобы ссылка укладывалась в поповер.
+    overflow-wrap: anywhere;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+    width: $btn-size;
+    height: $btn-size;
+    border-radius: 10px;
+
+    & > svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: #eee;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+  }
+
+  & > a {
+    display: block;
+    word-break: break-word;
+    width: calc(100% - 33px);
+  }
+
+}
+
+.link-editor button.link-confirm,
+.link-editor button.link-cancel {
+
+}
+
+.link-editor button.link-cancel {
+  margin-right: 12px;
+}
+
+.link-editor div.link-edit {
+  background-image: url(images/icons/pencil-fill.svg);
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 35px;
+  vertical-align: -0.25em;
+  position: absolute;
+  right: 30px;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.link-editor div.link-trash {
+  background-image: url(images/icons/trash.svg);
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 35px;
+  vertical-align: -0.25em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+}

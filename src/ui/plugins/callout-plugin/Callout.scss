@@ -1,0 +1,64 @@
+.tc-callout {
+  border-radius: 8px;
+  padding: 12px 14px 12px 40px;
+  margin: 8px 0;
+  position: relative;
+  border: 1px solid;
+
+  &::before {
+    position: absolute;
+    left: 12px;
+    top: 17px;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .edt-text-editor-theme__paragraph {
+    margin-bottom: 0;
+  }
+}
+
+.tc-callout--info {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+
+  &::before {
+    content: "\2139\FE0F";
+  }
+}
+
+.tc-callout--success {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+
+  &::before {
+    content: "\2705";
+  }
+}
+
+.tc-callout--warning {
+  background: #fffbeb;
+  border-color: #fde68a;
+
+  &::before {
+    content: "\26A0\FE0F";
+  }
+}
+
+.tc-callout--error {
+  background: #fef2f2;
+  border-color: #fecaca;
+
+  &::before {
+    content: "\274C";
+  }
+}
+
+.tc-callout--tip {
+  background: #fefce8;
+  border-color: #fef08a;
+
+  &::before {
+    content: "\1F4A1";
+  }
+}

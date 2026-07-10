@@ -1,0 +1,30 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  border: 2px solid grey;
+  border-radius: 8px;
+  padding: 2px 8px;
+  width: fit-content;
+  max-width: 282px;
+  min-width: 150px;
+  height: 42px;
+  overflow: hidden;
+
+  &:hover {
+    background: #eee;
+  }
+
+  & > svg {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

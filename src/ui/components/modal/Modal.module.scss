@@ -1,0 +1,76 @@
+:global(.edt_text_editor_Modal__overlay) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(2px);
+  flex-grow: 0;
+  z-index: 10000;
+}
+
+.modal {
+  padding: 24px;
+  min-height: 100px;
+  min-width: 520px;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 1;
+  background-color: #fff;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.title {
+  color: #020000;
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e2e5;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.closeButton {
+  border: 0;
+  position: absolute;
+  right: 20px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: #d8dadd;
+  }
+}
+
+.content {
+  padding-top: 16px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+:global(.tc-preview) {
+  width: 800px;
+  /* max-width: 100% — клампит по реальной ширине родителя (.content внутри
+     модалки), а не по vw (85vw не учитывает padding модалки и скроллбар). */
+  max-width: 100%;
+  overflow: hidden;
+}

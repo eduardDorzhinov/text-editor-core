@@ -1,0 +1,112 @@
+.ImageNode__contentEditable {
+  min-height: 20px;
+  border: 0;
+  resize: none;
+  cursor: text;
+  caret-color: rgb(5, 5, 5);
+  display: block;
+  position: relative;
+  outline: 0;
+  padding: 10px;
+  user-select: text;
+  width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.ImageNode__placeholder {
+  font-size: 12px;
+  color: #888;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 10px;
+  left: 10px;
+  user-select: none;
+  white-space: nowrap;
+  display: inline-block;
+  pointer-events: none;
+}
+
+.image-control-wrapper--resizing {
+  touch-action: none;
+}
+
+/* Плейсхолдер для не загрузившейся картинки. Делается кликабельным,
+   чтобы ImageComponent.onClick мог распознать клик и поставить
+   NodeSelection — иначе сломанную картинку нельзя удалить. */
+.image-broken {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px dashed #d8dadd;
+  border-radius: 8px;
+  padding: 24px;
+  background: #fafafa;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.image-broken--focused {
+  border-color: #0C6291;
+  box-shadow: 0 0 0 2px rgba(12, 98, 145, 0.25);
+}
+
+/* .image-wrapper — внешняя обёртка для группировки картинки и описания.
+   Sizing (block / inline-block) задаётся inline-стилем в ImageComponent
+   на основе widthMode. Position НЕ relative — иначе резизеры внутри
+   .image-resize-box цеплялись бы за wrapper и захватывали описание. */
+.image-wrapper {
+  display: block;
+}
+
+/* Positioned ancestor для резизеров. Sizing совпадает с .image-wrapper,
+   но без описания внутри — резизеры рисуются строго по границе <img>. */
+.image-resize-box {
+  position: relative;
+}
+
+/* Карточка с подписью/источником — визуально схожа с превью карусели:
+   серая плашка, скруглённые углы, padding. Включается, когда есть
+   captionText или source. Без них — картинка рендерится без обёртки. */
+.image-wrapper--with-meta {
+  background: #f2f4f5;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  /* Скругление картинки внутри карточки. */
+  img {
+    border-radius: 10px;
+  }
+}
+
+/* Блок мета-информации под картинкой (подпись + источник). */
+.image-meta {
+  padding: 14px 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.image-meta .image-caption {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1d24;
+  line-height: 1.5;
+}
+
+.image-meta .image-source {
+  display: inline;
+  margin: 0;
+  font-size: 13px;
+  font-style: italic;
+  color: #6b7280;
+}
+
+/* .image-source теперь рендерится только внутри .image-meta (см. правило
+   выше). Старый standalone-стиль для случая "source без wrapper'а"
+   удалён, так как ImageComponent больше не рендерит cite снаружи. */

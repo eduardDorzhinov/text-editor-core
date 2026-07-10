@@ -1,0 +1,17 @@
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+.buttonsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-top: 20px;
+
+  button {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,1 @@
+export { FloatingLinkEditorPlugin } from "./FloatingLinkEditorPlugin";

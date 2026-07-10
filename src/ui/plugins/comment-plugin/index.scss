@@ -1,0 +1,476 @@
+// Floating comment input box (appears above selection)
+.CommentPlugin_CommentInputBox {
+  display: block;
+  position: absolute;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  z-index: 24;
+  animation: show-input-box 0.2s ease;
+  overflow: hidden;
+}
+
+.CommentPlugin_CommentInputBox_Input {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  border: none;
+  border-bottom: 1px solid #e0e2e5;
+  outline: none;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-family: inherit;
+  color: #020000;
+  resize: none;
+  min-height: 80px;
+
+  &::placeholder {
+    color: #9e9e9e;
+  }
+}
+
+.CommentPlugin_CommentInputBox_EditorContainer {
+  position: relative;
+  border-bottom: 1px solid #e0e2e5;
+}
+
+.CommentPlugin_CommentInputBox_Editor {
+  position: relative;
+  border: none;
+  background-color: #fff;
+  border-radius: 0;
+  font-size: 14px;
+  font-family: inherit;
+  caret-color: #020000;
+  display: block;
+  padding: 14px 16px;
+  min-height: 80px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.CommentPlugin_CommentInputBox_Buttons {
+  display: flex;
+  padding: 10px 12px;
+  gap: 8px;
+  background: #f2f4f5;
+}
+
+.CommentPlugin_CommentInputBox_Button {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #d8dadd;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  background: #fff;
+  color: #3c4257;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: #eaeaea;
+  }
+
+  &_primary {
+    background-color: #0C6291;
+    border-color: #0C6291;
+    color: #fff;
+    font-weight: 600;
+
+    &:hover {
+      background-color: #0a527a;
+      border-color: #0a527a;
+    }
+  }
+
+  &:disabled {
+    background-color: #f2f2f2;
+    border-color: #d8dadd;
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: #9e9e9e;
+    font-weight: normal;
+
+    &:hover {
+      background-color: #f2f2f2;
+    }
+  }
+}
+
+@keyframes show-input-box {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Sidebar panel
+.CommentPlugin_CommentsPanel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  width: 340px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.CommentPlugin_CommentsPanel_Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 12px 12px 20px;
+  border-bottom: 1px solid #e0e2e5;
+  flex-shrink: 0;
+}
+
+.CommentPlugin_CommentsPanel_Heading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #020000;
+}
+
+.CommentPlugin_CommentsPanel_CloseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: #f2f2f2;
+  color: #8b8e97;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: #d8dadd;
+    color: #020000;
+  }
+}
+
+// Reply input inside sidebar
+.CommentPlugin_CommentsPanel_Input_wrap {
+  padding: 12px 16px;
+  position: relative;
+  border-top: 1px solid #e0e2e5;
+  flex-shrink: 0;
+}
+
+.CommentPlugin_CommentsPanel_Input {
+  width: 100%;
+  padding: 8px 36px 8px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1px solid #d8dadd;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: #f2f4f5;
+  font-family: inherit;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  resize: none;
+
+  &:focus {
+    border-color: #0C6291;
+    background-color: #fff;
+  }
+
+  &::placeholder {
+    color: #9e9e9e;
+  }
+}
+
+.CommentPlugin_CommentsPanel_SendButton {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+
+  &:hover {
+    background: none;
+  }
+
+  & > svg {
+    width: 18px;
+    height: 18px;
+    fill: #9e9e9e;
+    transition: fill 0.15s ease;
+  }
+
+  &:not(:disabled) > svg:hover {
+    fill: #0C6291;
+  }
+
+  &:disabled {
+    cursor: default;
+
+    & > svg {
+      fill: #d8dadd;
+    }
+  }
+}
+
+// Empty state
+.CommentPlugin_CommentsPanel_Empty {
+  color: #9e9e9e;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px 20px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Comments list
+.CommentPlugin_CommentsPanel_List {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+  width: 100%;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.CommentPlugin_CommentsPanel_List_Comment {
+  padding: 12px 16px;
+  margin: 0;
+  font-size: 13px;
+  position: relative;
+  transition: background-color 0.15s ease;
+
+  & > p {
+    margin: 0;
+    color: #53555c;
+    line-height: 1.5;
+  }
+
+  &:hover {
+    .CommentPlugin_CommentsPanel_List_DeleteButton {
+      opacity: 1;
+    }
+  }
+}
+
+.CommentPlugin_CommentsPanel_DeletedComment {
+  color: #9e9e9e !important;
+  font-style: italic;
+}
+
+.CommentPlugin_CommentsPanel_List_Thread.active
+  .CommentPlugin_CommentsPanel_List_Comment:hover {
+  background-color: inherit;
+}
+
+.CommentPlugin_CommentsPanel_List_Details {
+  color: #53555c;
+  padding-bottom: 4px;
+  line-height: 1.3;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.CommentPlugin_CommentsPanel_List_Comment_Author {
+  font-weight: 600;
+  font-size: 13px;
+  color: #020000;
+}
+
+.CommentPlugin_CommentsPanel_List_Comment_Time {
+  color: #9e9e9e;
+  font-size: 12px;
+}
+
+// Thread
+.CommentPlugin_CommentsPanel_List_Thread {
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #e0e2e5;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.CommentPlugin_CommentsPanel_List_Thread:first-child,
+.CommentPlugin_CommentsPanel_List_Thread
+  + .CommentPlugin_CommentsPanel_List_Thread {
+  border-top: none;
+}
+
+.CommentPlugin_CommentsPanel_List_Thread.interactive {
+  cursor: pointer;
+}
+
+.CommentPlugin_CommentsPanel_List_Thread.interactive:hover {
+  background-color: #f2f4f5;
+}
+
+.CommentPlugin_CommentsPanel_List_Thread.active {
+  background-color: #f2f4f5;
+  border-left: 3px solid #0C6291;
+  cursor: inherit;
+}
+
+.CommentPlugin_CommentsPanel_List_Thread_QuoteBox {
+  padding: 12px 16px 0;
+  display: block;
+
+  &:hover {
+    .CommentPlugin_CommentsPanel_List_DeleteButton {
+      opacity: 1;
+    }
+  }
+}
+
+.CommentPlugin_CommentsPanel_List_Thread_Quote {
+  margin: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.CommentPlugin_CommentsPanel_List_Thread_Quote span {
+  color: #020000;
+  background-color: rgba(12, 98, 145, 0.1);
+  padding: 1px 4px;
+  border-radius: 3px;
+  line-height: 1.5;
+  display: inline;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.CommentPlugin_CommentsPanel_List_Thread_Comments {
+  padding-left: 8px;
+  list-style-type: none;
+
+  & > .CommentPlugin_CommentsPanel_List_Comment {
+    padding-left: 12px;
+    border-left: 2px solid #d8dadd;
+    margin-left: 8px;
+
+    &:first-child {
+      border: none;
+      margin-left: 0;
+      padding-left: 8px;
+    }
+  }
+}
+
+// Delete button
+.CommentPlugin_CommentsPanel_List_DeleteButton {
+  padding: 4px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    background-color: rgba(218, 77, 49, 0.1);
+  }
+
+  & > svg {
+    width: 14px;
+    height: 14px;
+    fill: #da4d31;
+    display: block;
+  }
+}
+
+.ShowDeleteCommentOrThreadDialog_Modal__content {
+  margin-bottom: 15px;
+}
+
+/* ── Комментарий ко всей ноде ────────────────────────────────────────── */
+
+/* Модалка ввода комментария к блоку (внутри общего Modal). */
+.CommentPlugin_BlockCommentDialog {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 320px;
+}
+
+.CommentPlugin_BlockCommentDialog_Quote {
+  margin: 0;
+  padding: 8px 12px;
+  border-left: 3px solid #d8dadd;
+  background: #f7f7f8;
+  border-radius: 4px;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.4;
+  max-height: 96px;
+  overflow: hidden;
+}
+
+.CommentPlugin_BlockCommentDialog_Input {
+  width: 100%;
+  min-height: 96px;
+  resize: vertical;
+  padding: 10px 12px;
+  border: 1px solid #d8dadd;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  outline: none;
+
+  &:focus {
+    border-color: #9aa0a6;
+  }
+}
+
+.CommentPlugin_BlockCommentDialog_Buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Бейдж «Блок» у обсуждения, привязанного ко всей ноде. */
+.CommentPlugin_CommentsPanel_List_Thread_BlockBadge {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #eef1ff;
+  color: #4451c7;
+  font-size: 11px;
+  font-weight: 600;
+  vertical-align: middle;
+}

@@ -1,0 +1,99 @@
+.wrap {
+  position: relative;
+  width: fit-content;
+  display: inline-block;
+}
+
+.button {
+  background: none;
+  cursor: pointer;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 8px;
+  font-weight: bold;
+  line-height: 1.2;
+  padding: 0 4px;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.buttonEmpty {
+  color: #999;
+}
+
+.popup {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  z-index: 10;
+  width: 290px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  transition: opacity 0.5s;
+  will-change: transform;
+  padding: 8px 12px;
+}
+
+.popupRight {
+  right: 0;
+}
+
+.popupLeft {
+  left: 0;
+}
+
+// Раскрытие вверх (по умолчанию) — поповер над кнопкой якоря.
+.popupTop {
+  bottom: calc(100% + 8px);
+}
+
+// Раскрытие вниз — когда сверху не хватает места (якорь у верха экрана).
+.popupBottom {
+  top: calc(100% + 8px);
+}
+
+.input {
+  display: block;
+  width: calc(100% - 28px - 28px);
+  padding: 6px 12px;
+  box-sizing: border-box;
+  font-size: 15px;
+  color: rgb(5, 5, 5);
+  outline: 0;
+  position: relative;
+  background-color: transparent;
+  border: 1px solid #eee;
+  border-radius: 6px;
+
+  &:disabled {
+    border: 1px solid transparent;
+  }
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  &:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    background-color: transparent;
+  }
+}

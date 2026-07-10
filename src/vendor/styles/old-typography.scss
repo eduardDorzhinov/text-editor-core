@@ -1,0 +1,99 @@
+@use "sass:map";
+$font-family-als-hauss: "ALS Hauss", sens-serfif;
+
+$font-weights: (
+  "thin": 100,
+  "extralight": 200,
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700,
+  "extrabold": 800,
+  "black": 900,
+);
+
+$font-sizes: (
+  "h1": (
+    font-size: 32px,
+    line-height: 48px,
+  ),
+  "h2": (
+    font-size: 28px,
+    line-height: 36px,
+  ),
+  "h3": (
+    font-size: 24px,
+    line-height: 32px,
+  ),
+  "l": (
+    font-size: 20px,
+    line-height: 28px,
+  ),
+  "m": (
+    font-size: 16px,
+    line-height: 24px,
+  ),
+  "s": (
+    font-size: 14px,
+    line-height: 20px,
+  ),
+);
+
+@mixin font-weight($weight) {
+  @if map.has-key($font-weights, $weight) {
+    font-weight: map.get($font-weights, $weight);
+  }
+}
+
+@mixin font-size($sizes-heights, $size) {
+  @if map.has-key($sizes-heights, $size) {
+    $size-height-data: map.get($sizes-heights, $size);
+    font-size: map.get($size-height-data, font-size);
+    line-height: map.get($size-height-data, line-height);
+  }
+}
+
+@mixin font-sizes($size) {
+  @include font-size($font-sizes, $size);
+}
+
+@mixin font-family-als-hauss {
+  font-family: $font-family-als-hauss;
+}
+
+@mixin font-weight-regular {
+  font-weight: map.get($font-weights, "regular");
+}
+
+@mixin font-weight-medium {
+  font-weight: map.get($font-weights, "medium");
+}
+
+@mixin font-weight-bold {
+  font-weight: map.get($font-weights, "bold");
+}
+
+@mixin font-size-h1() {
+  @include font-sizes("h1");
+}
+
+@mixin font-size-h2() {
+  @include font-sizes("h2");
+}
+
+@mixin font-size-h3() {
+  @include font-sizes("h3");
+}
+
+@mixin font-size-s() {
+  @include font-sizes("s");
+}
+
+@mixin font-size-m() {
+  @include font-sizes("m");
+}
+
+@mixin font-size-l() {
+  @include font-sizes("l");
+}

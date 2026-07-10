@@ -1,0 +1,85 @@
+.trigger {
+  display: inline-flex;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 10000;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #1f1f1f;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: tooltipIn 0.12s ease-out;
+}
+
+.arrow {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #1f1f1f;
+}
+
+.top .arrow {
+  bottom: -3px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.bottom .arrow {
+  top: -3px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.left .arrow {
+  right: -3px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.right .arrow {
+  left: -3px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.label {
+  color: #fff;
+}
+
+.keys {
+  display: inline-flex;
+  gap: 2px;
+  color: #d0d0d0;
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+  color: #f0f0f0;
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+    transform-origin: bottom center;
+  }
+  to {
+    opacity: 1;
+  }
+}

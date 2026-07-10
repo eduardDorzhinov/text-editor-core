@@ -1,0 +1,71 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px;
+  border: 1px solid #d8dadd;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+
+  &:hover {
+    border-color: #9e9e9e;
+    background: #f9fafb;
+  }
+}
+
+.option_info {
+  &:hover {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+  }
+}
+
+.option_success {
+  &:hover {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+}
+
+.option_warning {
+  &:hover {
+    background: #fffbeb;
+    border-color: #fde68a;
+  }
+}
+
+.option_error {
+  &:hover {
+    background: #fef2f2;
+    border-color: #fecaca;
+  }
+}
+
+.option_tip {
+  &:hover {
+    background: #fefce8;
+    border-color: #fef08a;
+  }
+}
+
+.icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #53555c;
+}

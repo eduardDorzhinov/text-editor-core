@@ -1,0 +1,41 @@
+.ContentEditable__root {
+  border: 0;
+  font-size: 16px;
+  line-height: 1.75;
+  display: block;
+  position: relative;
+  outline: 0;
+  // Боковые паддинги полотна уменьшены: раньше слева был широкий «жёлоб»
+  // под кнопки блока (они были слева от ноды). Кнопки перенесены НАД ноду,
+  // поэтому жёлоб не нужен. Верхний паддинг чуть больше — чтобы тулбар над
+  // первым блоком не обрезался. Боковые отступы контента теперь дают сами
+  // ноды (правило ниже).
+  padding: 32px 20px 48px 20px;
+  min-height: calc(100vh - 120px);
+  color: #020000;
+}
+
+// Боковые паддинги самих верхнеуровневых нод. Дают отступ контента от краёв
+// и «воздух» вокруг текста для ховер-подсветки блока (она рисуется по bbox
+// ноды). Применяем ко ВСЕМ прямым детям, чтобы левые края блоков совпадали.
+.ContentEditable__root > * {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+
+.ContentEditable__placeholder {
+  font-size: 15px;
+  color: #9e9e9e;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 32px;
+  left: 36px;
+  right: 28px;
+  user-select: none;
+  white-space: nowrap;
+  display: inline-block;
+  pointer-events: none;
+  font-style: italic;
+}

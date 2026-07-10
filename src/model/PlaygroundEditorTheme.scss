@@ -1,0 +1,708 @@
+.edt-text-editor-theme__paragraph {
+  margin: 0 0 12px;
+  position: relative;
+}
+.edt-text-editor-theme__quote {
+  margin: 0;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border-left-color: #0C6291;
+  border-left-width: 3px;
+  border-left-style: solid;
+  padding-left: 16px;
+  color: #53555c;
+}
+
+.edt-text-editor-theme__indent {
+  --lexical-indent-base-value: 40px;
+}
+.edt-text-editor-theme__textBold {
+  font-weight: bold;
+}
+.edt-text-editor-theme__paragraph mark {
+  background-color: unset;
+}
+.edt-text-editor-theme__textHighlight {
+  background: rgba(255, 212, 0, 0.14);
+  border-bottom: 2px solid rgba(255, 212, 0, 0.3);
+}
+.edt-text-editor-theme__textItalic {
+  font-style: italic;
+}
+.edt-text-editor-theme__textUnderline {
+  text-decoration: underline;
+}
+
+.edt-text-editor-theme__textStrikethrough {
+  text-decoration: line-through;
+}
+
+.edt-text-editor-theme__textUnderlineStrikethrough {
+  text-decoration: underline line-through;
+}
+
+.edt-text-editor-theme__tabNode {
+  position: relative;
+  text-decoration: none;
+}
+
+.edt-text-editor-theme__tabNode.edt-text-editor-theme__textUnderline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.15em;
+  border-bottom: 0.1em solid currentColor;
+}
+
+.edt-text-editor-theme__tabNode.edt-text-editor-theme__textStrikethrough::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0.69em;
+  border-top: 0.1em solid currentColor;
+}
+
+.edt-text-editor-theme__tabNode.edt-text-editor-theme__textUnderlineStrikethrough::before,
+.edt-text-editor-theme__tabNode.edt-text-editor-theme__textUnderlineStrikethrough::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.edt-text-editor-theme__tabNode.edt-text-editor-theme__textUnderlineStrikethrough::before {
+  top: 0.69em;
+  border-top: 0.1em solid currentColor;
+}
+
+.edt-text-editor-theme__tabNode.edt-text-editor-theme__textUnderlineStrikethrough::after {
+  bottom: 0.05em;
+  border-bottom: 0.1em solid currentColor;
+}
+
+.edt-text-editor-theme__textSubscript {
+  font-size: 0.8em;
+  vertical-align: sub !important;
+}
+.edt-text-editor-theme__textSuperscript {
+  font-size: 0.8em;
+  vertical-align: super;
+}
+.edt-text-editor-theme__textCode {
+  background-color: #f2f2f2;
+  padding: 2px 6px;
+  font-family: 'JetBrains Mono', Menlo, Consolas, Monaco, monospace;
+  font-size: 90%;
+  border-radius: 4px;
+  border: 1px solid #d8dadd;
+}
+.edt-text-editor-theme__textLowercase {
+  text-transform: lowercase;
+}
+.edt-text-editor-theme__textUppercase {
+  text-transform: uppercase;
+}
+.edt-text-editor-theme__textCapitalize {
+  text-transform: capitalize;
+}
+.edt-text-editor-theme__hashtag {
+  background-color: rgba(88, 144, 255, 0.15);
+  border-bottom: 1px solid rgba(88, 144, 255, 0.3);
+}
+.edt-text-editor-theme__link {
+  color: #0C6291;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.edt-text-editor-theme__link:hover {
+  border-bottom-color: #0C6291;
+  color: #0a527a;
+  cursor: pointer;
+}
+.edt-text-editor-theme__blockCursor {
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+.edt-text-editor-theme__blockCursor:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -2px;
+  width: 20px;
+  border-top: 1px solid black;
+  animation: CursorBlink 1.1s steps(2, start) infinite;
+}
+@keyframes CursorBlink {
+  to {
+    visibility: hidden;
+  }
+}
+.edt-text-editor-theme__code {
+  background-color: #f2f4f5;
+  font-family: 'JetBrains Mono', Menlo, Consolas, Monaco, monospace;
+  display: block;
+  padding: 12px 12px 12px 52px;
+  line-height: 1.6;
+  font-size: 13px;
+  margin: 0;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  overflow-x: auto;
+  position: relative;
+  tab-size: 2;
+  border-radius: 8px;
+  border: 1px solid #e0e2e5;
+}
+.edt-text-editor-theme__code:before {
+  content: attr(data-gutter);
+  position: absolute;
+  background-color: #f2f2f2;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #d8dadd;
+  padding: 12px 8px;
+  color: #9e9e9e;
+  white-space: pre-wrap;
+  text-align: right;
+  min-width: 25px;
+  border-radius: 8px 0 0 8px;
+}
+.edt-text-editor-theme__tableScrollableWrapper {
+  overflow-x: auto;
+  margin: 0px 0px 30px 0px;
+}
+.edt-text-editor-theme__tableScrollableWrapper > .edt-text-editor-theme__table {
+  /* Remove the table's vertical margin and put it on the wrapper */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.edt-text-editor-theme__tableAlignmentCenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+.edt-text-editor-theme__tableAlignmentRight {
+  margin-left: auto;
+}
+.edt-text-editor-theme__table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  /* Граница таблицы — чтобы после ресайза правый/нижний бордер последней
+     ячейки не клипался шириной таблицы или overflow-обёрткой.
+     С border-collapse: collapse коллапсируется с границами крайних ячеек. */
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  /* border-box, чтобы 1px правой границы входил в style.width = sum(colWidths),
+     иначе таблица будет на 1px шире обёртки. */
+  box-sizing: border-box;
+}
+/* В full-режиме нужен table-layout: fixed: иначе содержимое колонки
+   разрывает её ширину и таблица перестаёт быть «на всю ширину контейнера».
+   В fixed-режиме НЕ нужен: у нас есть явные colgroup-ширины + inline
+   style.width на самой <table>; с table-layout: fixed браузер интерпретирует
+   эту комбинацию криво (правый край вылазит за вьюпорт). С table-layout:
+   auto явные ширины из colgroup применяются предсказуемо. */
+.edt-text-editor-theme__table[data-width-mode="full"] {
+  table-layout: fixed;
+}
+/* Режим «фактическая ширина» — таблица растёт до суммы colWidths */
+.edt-text-editor-theme__table[data-width-mode="fixed"] {
+  width: auto;
+}
+/* В режиме «на всю ширину» — у ячеек минимальная ширина.
+   Если сумма min-width > viewport — обёртка покажет горизонтальный скролл. */
+.edt-text-editor-theme__table[data-width-mode="full"] .edt-text-editor-theme__tableCell {
+  min-width: 50px;
+}
+.edt-text-editor-theme__tableScrollableWrapper.edt-text-editor-theme__tableFrozenRow {
+  /* position:sticky needs overflow:clip or visible
+     https://github.com/w3c/csswg-drafts/issues/865#issuecomment-350585274 */
+  overflow-x: clip;
+}
+.edt-text-editor-theme__tableFrozenRow tr:nth-of-type(1) > td {
+  overflow: clip;
+  background-color: #ffffff;
+  position: sticky;
+  z-index: 2;
+  top: 44px;
+}
+.edt-text-editor-theme__tableFrozenRow tr:nth-of-type(1) > th {
+  overflow: clip;
+  background-color: #f2f3f5;
+  position: sticky;
+  z-index: 2;
+  top: 44px;
+}
+.edt-text-editor-theme__tableFrozenRow tr:nth-of-type(1) > th:after,
+.edt-text-editor-theme__tableFrozenRow tr:nth-of-type(1) > td:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 1px solid #bbb;
+}
+.edt-text-editor-theme__tableFrozenColumn tr > td:first-child {
+  background-color: #ffffff;
+  position: sticky;
+  z-index: 2;
+  left: 0;
+}
+.edt-text-editor-theme__tableFrozenColumn tr > th:first-child {
+  background-color: #f2f3f5;
+  position: sticky;
+  z-index: 2;
+  left: 0;
+}
+.edt-text-editor-theme__tableFrozenColumn tr > :first-child::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-right: 1px solid #bbb;
+}
+.edt-text-editor-theme__tableRowStriping tr:nth-child(even),
+.edt-text-editor-theme__tableFrozenColumn
+  .edt-text-editor-theme__table.edt-text-editor-theme__tableRowStriping
+  tr:nth-child(even)
+  > td:first-child {
+  background-color: #f2f5fb;
+}
+.edt-text-editor-theme__tableSelection *::selection {
+  background-color: transparent;
+}
+.edt-text-editor-theme__tableSelected {
+  outline: 2px solid rgb(60, 132, 244);
+}
+.edt-text-editor-theme__tableCell {
+  border: 1px solid #bbb;
+  vertical-align: top;
+  text-align: start;
+  padding: 6px 8px;
+  position: relative;
+  outline: none;
+  overflow: auto;
+}
+/*
+  A firefox workaround to allow scrolling of overflowing table cell
+  ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1904159
+*/
+.edt-text-editor-theme__tableCell > * {
+  overflow: inherit;
+}
+.edt-text-editor-theme__tableCellResizer {
+  position: absolute;
+  right: -4px;
+  height: 100%;
+  width: 8px;
+  cursor: ew-resize;
+  z-index: 10;
+  top: 0;
+}
+.edt-text-editor-theme__tableCellHeader {
+  text-align: start;
+}
+.edt-text-editor-theme__tableCellSelected {
+  caret-color: transparent;
+}
+.edt-text-editor-theme__tableCellSelected::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: highlight;
+  mix-blend-mode: multiply;
+  content: '';
+  pointer-events: none;
+}
+.edt-text-editor-theme__tableAddColumns {
+  position: absolute;
+  background-color: #eee;
+  height: 100%;
+  animation: table-controls 0.2s ease;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edt-text-editor-theme__tableAddRows {
+  position: absolute;
+  width: calc(100% - 25px);
+  background-color: #eee;
+  animation: table-controls 0.2s ease;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.edt-text-editor-theme__tableAddColumns:hover,
+.edt-text-editor-theme__tableAddRows:hover {
+  background-color: #c9dbf0;
+}
+
+@keyframes table-controls {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.edt-text-editor-theme__tableCellResizeRuler {
+  display: block;
+  position: absolute;
+  width: 1px;
+  background-color: rgb(60, 132, 244);
+  height: 100%;
+  top: 0;
+}
+.edt-text-editor-theme__tableCellActionButtonContainer {
+  display: block;
+  right: 5px;
+  top: 6px;
+  position: absolute;
+  z-index: 4;
+  width: 20px;
+  height: 20px;
+}
+.edt-text-editor-theme__tableCellActionButton {
+  background-color: #eee;
+  display: block;
+  border: 0;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+  color: #222;
+  cursor: pointer;
+}
+.edt-text-editor-theme__tableCellActionButton:hover {
+  background-color: #ddd;
+}
+.edt-text-editor-theme__characterLimit {
+  display: inline;
+  background-color: #ffbbbb !important;
+}
+/* Иерархическая нумерация через CSS counters: 1 → 1.1 → 1.1.1 */
+.edt-text-editor-theme__ol1,
+.edt-text-editor-theme__ol2,
+.edt-text-editor-theme__ol3,
+.edt-text-editor-theme__ol4,
+.edt-text-editor-theme__ol5 {
+  list-style: none;
+  counter-reset: list-counter;
+  padding: 0;
+  margin: 0;
+}
+
+.edt-text-editor-theme__ol1 > .edt-text-editor-theme__listItem,
+.edt-text-editor-theme__ol2 > .edt-text-editor-theme__listItem,
+.edt-text-editor-theme__ol3 > .edt-text-editor-theme__listItem,
+.edt-text-editor-theme__ol4 > .edt-text-editor-theme__listItem,
+.edt-text-editor-theme__ol5 > .edt-text-editor-theme__listItem {
+  counter-increment: list-counter;
+  position: relative;
+}
+
+.edt-text-editor-theme__ol1 > .edt-text-editor-theme__listItem::before,
+.edt-text-editor-theme__ol2 > .edt-text-editor-theme__listItem::before,
+.edt-text-editor-theme__ol3 > .edt-text-editor-theme__listItem::before,
+.edt-text-editor-theme__ol4 > .edt-text-editor-theme__listItem::before,
+.edt-text-editor-theme__ol5 > .edt-text-editor-theme__listItem::before {
+  content: counters(list-counter, ".") ".";
+  position: absolute;
+  right: 100%;
+  top: 0;
+  margin-right: 0.5em;
+  font-weight: inherit;
+  white-space: nowrap;
+  // Моноширинные цифры — номера разной длины (1, 10, 11.2) выравниваются.
+  font-variant-numeric: tabular-nums;
+}
+
+/* Lexical при Tab создаёт пустой li-обёртку, внутри которой лежит вложенный <ol>/<ul>.
+   - для ol: не инкрементировать счётчик и не показывать номер у обёртки
+   - для ul: скрыть буллет, иначе торчит лишний маркер */
+.edt-text-editor-theme__listItem:has(> ol:only-child) {
+  counter-increment: none;
+  list-style: none;
+}
+.edt-text-editor-theme__listItem:has(> ol:only-child)::before {
+  content: "";
+  display: none;
+}
+.edt-text-editor-theme__listItem:has(> ul:only-child) {
+  list-style: none;
+}
+
+/* Маркированные: просто отступ. Дефолт — disc.
+   Конкретный bullet для конкретного <ul> ставит CustomListNode
+   через inline style="list-style-type: ..." */
+.edt-text-editor-theme__ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.edt-text-editor-theme__listItem {
+  margin: 0 32px;
+}
+.edt-text-editor-theme__listItemChecked,
+.edt-text-editor-theme__listItemUnchecked {
+  position: relative;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  list-style-type: none;
+  outline: none;
+  display: block;
+  min-height: 1.5em;
+}
+.edt-text-editor-theme__listItemChecked > *,
+.edt-text-editor-theme__listItemUnchecked > * {
+  margin-left: 0.01em;
+}
+.edt-text-editor-theme__listItemUnchecked:before,
+.edt-text-editor-theme__listItemChecked:before {
+  content: '\200B';
+  width: 0.9em;
+  height: 0.9em;
+  top: 50%;
+  left: 0;
+  cursor: pointer;
+  display: block;
+  background-size: cover;
+  position: absolute;
+  transform: translateY(-50%);
+}
+.edt-text-editor-theme__listItemChecked {
+  text-decoration: line-through;
+}
+.edt-text-editor-theme__listItemUnchecked:focus:before,
+.edt-text-editor-theme__listItemChecked:focus:before {
+  box-shadow: 0 0 0 2px #a6cdfe;
+  border-radius: 2px;
+}
+.edt-text-editor-theme__listItemUnchecked:before {
+  border: 1px solid #999;
+  border-radius: 2px;
+}
+.edt-text-editor-theme__listItemChecked:before {
+  border: 1px solid rgb(61, 135, 245);
+  border-radius: 2px;
+  background-color: #3d87f5;
+  background-repeat: no-repeat;
+}
+.edt-text-editor-theme__listItemChecked:after {
+  content: '';
+  cursor: pointer;
+  border-color: #fff;
+  border-style: solid;
+  position: absolute;
+  display: block;
+  top: 45%;
+  width: 0.2em;
+  left: 0.35em;
+  height: 0.4em;
+  transform: translateY(-50%) rotate(45deg);
+  border-width: 0 0.1em 0.1em 0;
+}
+.edt-text-editor-theme__nestedListItem {
+  list-style-type: none;
+}
+.edt-text-editor-theme__nestedListItem:before,
+.edt-text-editor-theme__nestedListItem:after {
+  display: none;
+}
+.edt-text-editor-theme__tokenComment {
+  color: slategray;
+}
+.edt-text-editor-theme__tokenDeleted {
+  border-image: linear-gradient(to right, #ffcecb 50%, #ffebe9 50%) fill 0/0/0
+    100vw;
+}
+.edt-text-editor-theme__tokenInserted {
+  border-image: linear-gradient(to right, #aceebb 50%, #dafbe1 50%) fill 0/0/0
+    100vw;
+}
+.edt-text-editor-theme__tokenUnchanged {
+  border-image: linear-gradient(to right, #ddd 50%, #f2f2f2 50%) fill 0/0/0
+    100vw;
+}
+.edt-text-editor-theme__tokenPunctuation {
+  color: #999;
+}
+.edt-text-editor-theme__tokenProperty {
+  color: #905;
+}
+.edt-text-editor-theme__tokenSelector {
+  color: #690;
+}
+.edt-text-editor-theme__tokenOperator {
+  color: #9a6e3a;
+}
+.edt-text-editor-theme__tokenAttr {
+  color: #07a;
+}
+.edt-text-editor-theme__tokenVariable {
+  color: #e90;
+}
+.edt-text-editor-theme__tokenFunction {
+  color: #dd4a68;
+}
+.edt-text-editor-theme__mark {
+  background: rgba(255, 212, 0, 0.14);
+  border-bottom: 2px solid rgba(255, 212, 0, 0.3);
+  padding-bottom: 2px;
+}
+.edt-text-editor-theme__markOverlap {
+  background: rgba(255, 212, 0, 0.3);
+  border-bottom: 2px solid rgba(255, 212, 0, 0.7);
+}
+.edt-text-editor-theme__mark.selected {
+  background: rgba(255, 212, 0, 0.5);
+  border-bottom: 2px solid rgba(255, 212, 0, 1);
+}
+.edt-text-editor-theme__markOverlap.selected {
+  background: rgba(255, 212, 0, 0.7);
+  border-bottom: 2px solid rgba(255, 212, 0, 0.7);
+}
+.comment-disabled .edt-text-editor-theme__mark {
+  background: transparent;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.comment-disabled .edt-text-editor-theme__mark.selected {
+  background: transparent;
+  border-bottom: none;
+}
+
+// Блок, к которому есть комментарий: жёлтая рамка + лёгкая заливка тем же
+// цветом, что и подсветка текста inline-комментариев. box-shadow inset (а не
+// border) — чтобы не смещать вёрстку блока.
+.edt-block-commented {
+  background: rgba(255, 212, 0, 0.14);
+  box-shadow: inset 0 0 0 2px rgba(255, 212, 0, 0.3);
+  border-radius: 4px;
+}
+// Активный блок (выбрано его обсуждение в сайдбаре) — ярче, как у выделенного
+// inline-обсуждения (.edt-text-editor-theme__mark.selected).
+.edt-block-commented.selected {
+  background: rgba(255, 212, 0, 0.35);
+  box-shadow: inset 0 0 0 2px rgba(255, 212, 0, 1);
+}
+// В режиме без комментариев (как и inline-подсветка) рамку не показываем.
+.comment-disabled .edt-block-commented {
+  background: transparent;
+  box-shadow: none;
+}
+.edt-text-editor-theme__embedBlock {
+  user-select: none;
+}
+.edt-text-editor-theme__embedBlockFocus {
+  outline: 2px solid rgb(60, 132, 244);
+}
+.edt-text-editor-theme__layoutContainer {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0;
+}
+.edt-text-editor-theme__layoutItem {
+  border: 1px dashed #ddd;
+  padding: 8px 16px;
+  min-width: 0;
+  max-width: 100%;
+}
+.edt-text-editor-theme__autocomplete {
+  color: #ccc;
+}
+.edt-text-editor-theme__hr {
+  padding: 2px 2px;
+  border: none;
+  margin: 1.5em 0;
+  cursor: pointer;
+}
+.edt-text-editor-theme__hr:after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d8dadd, transparent);
+  line-height: 1px;
+}
+.edt-text-editor-theme__hr.edt-text-editor-theme__hrSelected {
+  outline: 2px solid rgb(60, 132, 244);
+  user-select: none;
+}
+
+.edt-text-editor-theme__specialText {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.edt-text-editor-theme__contextMenu {
+  outline: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+.edt-text-editor-theme__contextMenu button:first-child {
+  border-radius: 8px 8px 0px 0px;
+}
+.edt-text-editor-theme__contextMenu button:last-child {
+  border-radius: 0px 0px 8px 8px;
+}
+.edt-text-editor-theme__contextMenuItem {
+  width: 100%;
+  display: block;
+}
+.edt-text-editor-theme__contextMenuItem {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  background-color: #fff;
+  color: #050505;
+  border: 0;
+  border-radius: 0px;
+  font-size: 15px;
+  text-align: left;
+  line-height: 20px;
+  padding: 8px;
+  padding-right: 14px;
+  outline: 0;
+  cursor: pointer;
+}
+.edt-text-editor-theme__contextMenuItem.open {
+  background: #ddd;
+}
+.edt-text-editor-theme__contextMenuItem:focus,
+.edt-text-editor-theme__contextMenuItem:not([disabled]):active {
+  background: #eee;
+}
+.edt-text-editor-theme__contextMenuItem:disabled {
+  background: #fff;
+  color: #aaa;
+  cursor: not-allowed;
+}
+.edt-text-editor-theme__contextMenuItemIcon {
+  width: 20px;
+  margin-right: 8px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

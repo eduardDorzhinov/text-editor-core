@@ -1,0 +1,342 @@
+.panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  width: 340px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 12px 12px 20px;
+  border-bottom: 1px solid #e0e2e5;
+  flex-shrink: 0;
+}
+
+.heading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #020000;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: #f2f2f2;
+  color: #53555c;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: #d8dadd;
+    color: #020000;
+  }
+}
+
+.empty {
+  color: #9e9e9e;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px 20px;
+  font-style: italic;
+}
+
+/* body занимает всё свободное пространство и скролится по вертикали;
+   footer прибит к низу панели (flex-shrink: 0). */
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.item {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 4px;
+
+  &:hover .visibilityBtn {
+    opacity: 1;
+  }
+}
+
+.itemHidden {
+  .link {
+    color: #9e9e9e;
+    text-decoration: line-through;
+  }
+  .levelBadge {
+    color: #b8babf;
+    background: #f6f6f6;
+  }
+}
+
+/* Кнопка-шеврон аккордеона и spacer той же ширины — чтобы все строки
+   выровнялись независимо от того, есть у записи дети или нет. */
+.accordionToggle,
+.accordionSpacer {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordionToggle {
+  border: none;
+  background: none;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  & > svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover {
+    background: #f2f2f2;
+    color: #020000;
+  }
+}
+
+/* Бейдж уровня заголовка вместо буллета. Фиксированная ширина — для
+   выравнивания всех текстов ссылок по одной вертикальной линии. */
+.levelBadge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: #eef2f5;
+  color: #53555c;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.link {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 0;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-family: inherit;
+  color: #020000;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.15s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    color: #0C6291;
+  }
+}
+
+.visibilityBtn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: #9e9e9e;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+  font-size: 14px;
+
+  .itemHidden & {
+    opacity: 0.7;
+    color: #da4d31;
+  }
+
+  &:hover {
+    background: #f2f2f2;
+    color: #53555c;
+  }
+}
+
+/* === Footer с настройками === */
+
+.footer {
+  flex-shrink: 0;
+  padding: 12px 16px;
+  border-top: 1px solid #e0e2e5;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* === Кастомный multi-select === */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #d8dadd;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px;
+  color: #020000;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: #9e9e9e;
+  }
+}
+
+.dropdownValue {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdownCaret {
+  flex-shrink: 0;
+  color: #6b7280;
+  transition: transform 0.15s ease;
+}
+
+.dropdownCaretOpen {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: #fff;
+  border: 1px solid #d8dadd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdownEmpty {
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #9e9e9e;
+  font-style: italic;
+  text-align: center;
+}
+
+.dropdownOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #020000;
+  transition: background-color 0.1s ease;
+
+  &:hover {
+    background: #f2f4f5;
+  }
+
+  input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+  }
+}
+
+/* === Нативный single-select === */
+
+.nativeSelect {
+  width: 100%;
+  padding: 6px 28px 6px 10px;
+  border: 1px solid #d8dadd;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px;
+  color: #020000;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: #9e9e9e;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #0C6291;
+  }
+}

@@ -1,0 +1,36 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 380px;
+  max-width: 480px;
+}
+
+// Превью картинки сверху. Фиксированная высота с object-fit: contain —
+// картинка всегда влезает целиком, независимо от пропорций.
+.previewBox {
+  width: 100%;
+  height: 200px;
+  background: #f2f4f5;
+  border: 1px solid #e0e2e5;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.previewEmpty {
+  color: #9e9e9e;
+  font-size: 13px;
+  font-style: italic;
+  text-align: center;
+  padding: 0 16px;
+}

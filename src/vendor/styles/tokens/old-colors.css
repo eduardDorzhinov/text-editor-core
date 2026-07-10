@@ -1,0 +1,135 @@
+:root[data-theme='light'] {
+    --text-basic: #000000;
+    --text-secondary: #8b8c94;
+    --text-inverse: #ffffff;
+    --text-brand: #8000ff;
+    --text-brand-1: #9742ff;
+    --text-error: #fc2323;
+    --text-success: #4caf50;
+    --text-warning: #ff773c;
+    --text-info: #3954de;
+    --text-banner: #000096;
+    --bg-basic: #ffffff;
+    --bg-basic-1: #f3f4f7;
+    --bg-basic-2: #f7f7f7;
+    --bg-plate: #d1cfd7;
+    --bg-brand: #8000ff;
+    --bg-brand-1: #9742ff;
+    --bg-brand-secondary: #f5ebff;
+    --bg-error: #ffdfdf;
+    --old-bg-success: #d6ffe1;
+    --old-bg-warning: #fff1e4;
+    --bg-info: #e4eaff;
+    --bg-banner: #e8eaf2;
+    --border-basic: #d1cfd7;
+    --border-brand: #8000ff;
+    --border-brand-1: #9742ff;
+    --border-error: #fc2323;
+    --border-warning: #ff773c;
+    --border-success: #4caf50;
+    --border-info: #3954de;
+    --icon-basic: #8b8c94;
+    --icon-basic-1: #000000;
+    --icon-inverse: #ffffff;
+    --icon-error: #fc2323;
+    --icon-warning: #ff773c;
+    --icon-success: #4caf50;
+    --icon-info: #3954de;
+    --text-disabled: #d1cfd7;
+    --bg-creative: #f040f5;
+    --bg-creative-1: #fee1f6;
+    --bg-brand-2: #5900b3;
+    --text-creative: #f040f5;
+    --icon-brand: #8000ff;
+    --bg-inverse: #ffffff;
+    --icon-brand-1: #9742ff;
+    --icon-disabled: #d1cfd7;
+    --bg-success-active: #4caf50;
+    --bg-error-active: #fc2323;
+    --shadow-basic: rgba(139 139 139 / 0.25);
+
+    /* styles for customization */
+    --button-outline-hover: var(--bg-brand-secondary);
+    --button-outline-text-color: var(--text-brand);
+    --button-outline-border-color: var(--border-brand);
+
+    --button-primary-bg: var(--bg-brand);
+    --button-primary-text: var(--text-inverse);
+    --button-primary-border: var(--border-brand);
+    --button-primary-bg-hover: var(--bg-brand-1);
+    --button-primary-border-hover: var(--border-brand-1);
+
+    --bg-mono: #141414; /* TODO: Add tokens when possible */
+    --bg-mono-1: #252629; /* TODO: Add tokens when possible */
+    --bg-text: #f0f0f0; /* TODO: Add tokens when possible */
+
+    --loader-primary: var(--bg-brand);
+}
+
+:root[data-theme='dark'] {
+    --text-basic: #ffffff;
+    --text-secondary: #a3a3a3;
+    --text-inverse: #ffffff;
+    --text-brand: #9742ff;
+    --text-brand-1: #a861ff;
+    --text-error: #fc2323;
+    --text-success: #4caf50;
+    --text-warning: #ff6d2e;
+    --text-info: #596fe3;
+    --text-banner: #5959f7;
+    --bg-basic: #262626;
+    --bg-basic-1: #1f1f1f;
+    --bg-basic-2: #333333;
+    --bg-plate: #2b2b2b;
+    --bg-brand: #9742ff;
+    --bg-brand-1: #a861ff;
+    --bg-brand-secondary: #33254b;
+    --bg-error: #412a2a;
+    --old-bg-success: #2a4130;
+    --old-bg-warning: #41352a;
+    --bg-info: #2b3042;
+    --bg-banner: #2b2b2b;
+    --border-basic: #333234;
+    --border-brand: #9742ff;
+    --border-brand-1: #a861ff;
+    --border-error: #fc2323;
+    --border-warning: #ff773c;
+    --border-success: #4caf50;
+    --border-info: #596fe3;
+    --icon-basic: #a3a3a3;
+    --icon-basic-1: #ffffff;
+    --icon-inverse: #ffffff;
+    --icon-error: #fc2323;
+    --icon-warning: #ff773c;
+    --icon-success: #4caf50;
+    --icon-info: #596fe3;
+    --text-disabled: #515053;
+    --bg-creative: #f040f5;
+    --bg-creative-1: #442c3e;
+    --bg-brand-2: #5900b3;
+    --text-creative: #f040f5;
+    --icon-brand: #9742ff;
+    --bg-inverse: #ffffff;
+    --icon-brand-1: #a861ff;
+    --icon-disabled: #515053;
+    --bg-success-active: #145a17;
+    --bg-error-active: #fc2323;
+    --shadow-basic: rgba(0 0 0 / 0.25);
+
+    /* styles for customization */
+    --button-outline-hover: var(--bg-brand-secondary);
+    --button-outline-text-color: var(--text-brand);
+    --button-outline-border-color: var(--border-brand);
+
+    --button-primary-bg: var(--bg-brand);
+    --button-primary-text: var(--text-inverse);
+    --button-primary-border: var(--border-brand);
+    --button-primary-bg-hover: var(--bg-brand-1);
+    --button-primary-border-hover: var(--border-brand-1);
+
+    --bg-mono: #f5f5f6; /* TODO: Add tokens when possible */
+    --bg-mono-1: #d9d9dd; /* TODO: Add tokens when possible */
+    --bg-text: #333333; /* TODO: Add tokens when possible */
+
+    --loader-primary: var(--bg-brand);
+}

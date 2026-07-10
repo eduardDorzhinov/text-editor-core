@@ -1,0 +1,87 @@
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+
+  padding: 6px 10px;
+  background: #f4f6f8;
+  border-bottom: 1px solid #e0e2e5;
+  position: sticky;
+  top: 40px; // под основным тулбаром (его высота 40px)
+  z-index: 9;
+  font-size: 13px;
+  color: #1a1d24;
+}
+
+.table-toolbar__checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 6px;
+  border-radius: 6px;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  input {
+    margin: 0;
+    cursor: pointer;
+  }
+}
+
+.table-toolbar__divider {
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  background: #d8dadd;
+  margin: 0 2px;
+}
+
+.table-toolbar__btn {
+  border: 0;
+  background: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+  color: #1a1d24;
+  font-size: 13px;
+
+  & > svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover:not(:disabled) {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &--danger:hover:not(:disabled) {
+    background: rgba(220, 38, 38, 0.1);
+    color: #b91c1c;
+  }
+}
+
+.table-toolbar__color-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid #d8dadd;
+}
+
+.table-toolbar__merge-label {
+  padding: 0 2px;
+}

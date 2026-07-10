@@ -1,0 +1,242 @@
+// Source selection grid
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.gridSingle {
+  display: flex;
+  justify-content: center;
+
+  .card {
+    min-width: calc(50% - 5px);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 12px;
+  border: 1px solid #d8dadd;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  position: relative;
+
+  &:hover {
+    border-color: #0C6291;
+    background: #e8f6f9;
+  }
+}
+
+.cardDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  &:hover {
+    border-color: #d8dadd;
+    background: #fff;
+  }
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f2f4f5;
+  color: #53555c;
+  font-size: 20px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  .card:hover & {
+    background: #0C6291;
+    color: #fff;
+  }
+
+  .cardDisabled:hover & {
+    background: #f2f4f5;
+    color: #53555c;
+  }
+}
+
+.iconText {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cardLabel {
+  font-size: 13px;
+  color: #53555c;
+  font-weight: 500;
+
+  .card:hover & {
+    color: #0C6291;
+  }
+
+  .cardDisabled:hover & {
+    color: #53555c;
+  }
+}
+
+.cardBadge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 10px;
+  color: #9e9e9e;
+  background: #f2f2f2;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+// Form
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.back {
+  align-self: flex-start;
+  border: none;
+  background: none;
+  color: #0C6291;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    color: #0a527a;
+  }
+}
+
+// Orientation picker
+.orientationRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.orientationLabel {
+  font-size: 14px;
+  color: #53555c;
+  flex-shrink: 0;
+}
+
+.orientationButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.orientationBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid #d8dadd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  font-family: inherit;
+  color: #53555c;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: #0C6291;
+    color: #0C6291;
+  }
+}
+
+.orientationBtnActive {
+  border-color: #0C6291;
+  background: #e8f6f9;
+  color: #0C6291;
+  font-weight: 500;
+}
+
+.orientationIconH {
+  display: block;
+  width: 20px;
+  height: 12px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+
+.orientationIconV {
+  display: block;
+  width: 12px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+
+.detectionNotice {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  background: #e8f6f9;
+  border: 1px solid #b9e0ec;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #0c6291;
+}
+
+.detectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+// Подсказка для VK (про обязательный hash). Чуть приглушённый
+// внешний вид, чтобы не перетягивать внимание с детекта.
+.detectionHint {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #5e6a73;
+
+  code {
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: rgba(12, 98, 145, 0.08);
+    color: #0c6291;
+    font-family: ui-monospace, "SF Mono", Monaco, Menlo, monospace;
+    font-size: 11.5px;
+  }
+}
+
+.detectionCheckbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #1f2937;
+  cursor: pointer;
+  user-select: none;
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: #0c6291;
+  }
+}

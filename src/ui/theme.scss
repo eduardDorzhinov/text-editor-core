@@ -1,0 +1,65 @@
+/* Типографическая шкала редактора. Размеры строго убывают:
+   h1 > h2 > h3 > h4 > h5 > h6 > обычный текст = списки (самые мелкие).
+   Должна совпадать со шкалой превью (src/parser/preview.module.scss).
+   Размер шрифта не редактируется пользователем — он задан типом блока. */
+#text-creator-root .edt-text-editor-theme__h1 {
+    font-size: 32px !important;
+    font-weight: 700;
+    margin: 20px 0 12px;
+    letter-spacing: -0.02em;
+    color: #020000;
+}
+
+#text-creator-root .edt-text-editor-theme__h2 {
+    font-size: 28px !important;
+    font-weight: 600;
+    margin: 16px 0 10px;
+    letter-spacing: -0.01em;
+    color: #1a1d24;
+}
+
+#text-creator-root .edt-text-editor-theme__h3 {
+    font-size: 24px !important;
+    font-weight: 600;
+    margin: 14px 0 8px;
+    color: #020000;
+}
+
+#text-creator-root .edt-text-editor-theme__h4 {
+    font-size: 21px !important;
+    font-weight: 600;
+    margin: 12px 0 6px;
+    color: #020000;
+}
+
+#text-creator-root .edt-text-editor-theme__h5 {
+    font-size: 19px !important;
+    font-weight: 600;
+    margin: 10px 0 5px;
+    color: #020000;
+}
+
+#text-creator-root .edt-text-editor-theme__h6 {
+    font-size: 17px !important;
+    font-weight: 600;
+    margin: 8px 0 4px;
+    color: #020000;
+}
+
+/* Обычный текст и списки — самый мелкий размер шкалы. Через #text-creator-root
+   для специфичности и !important, чтобы тип блока определял размер однозначно
+   (редактирование высоты шрифта отключено). */
+#text-creator-root .edt-text-editor-theme__paragraph,
+#text-creator-root .edt-text-editor-theme__listItem {
+    font-size: 15px !important;
+}
+
+#text-creator-root .edt-slider-node,
+#text-creator-root .editor-image, {
+    margin: 14px 0 8px;
+}
+
+.edt-text-creator__edt-video__vertical {
+    height: 500px;
+    aspect-ratio: 9 / 16;
+}

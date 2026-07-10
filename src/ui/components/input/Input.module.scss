@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.label {
+  display: flex;
+  flex: 1;
+  color: #666;
+  font-weight: 400;
+}
+
+.input {
+  display: flex;
+  flex: 2;
+  border: 1px solid #999;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  min-width: 0;
+}

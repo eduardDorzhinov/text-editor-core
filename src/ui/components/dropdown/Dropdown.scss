@@ -1,0 +1,84 @@
+.edt_dropdown_wrap {
+  position: relative;
+}
+
+.edt-dropdown__trigger {
+  position: relative;
+}
+
+.text-creator-dropdown {
+  z-index: 100;
+  display: block;
+  position: absolute;
+  // Контейнер фокусируется при открытии (для клавиатурной навигации), но
+  // визуального фокуса-обводки на самом дропдауне быть не должно.
+  outline: none;
+  padding: 4px;
+  box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  min-height: 40px;
+  background-color: #fff;
+  max-height: calc(100vh - 30px);
+  overflow-y: auto;
+
+  .edt-drp-item {
+    padding: 8px 14px;
+    color: #020000;
+    cursor: pointer;
+    line-height: 16px;
+    font-size: 14px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: start;
+    flex-direction: row;
+    flex-shrink: 0;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 6px;
+    border: 0;
+    max-width: 304px;
+    min-width: 100px;
+    transition: background-color 0.12s ease;
+
+    &.edt-drp-active {
+      background-color: #e8f6f9;
+      opacity: 1;
+    }
+
+    &:hover {
+      background-color: #f2f2f2;
+    }
+
+    .text {
+      display: flex;
+      align-items: center;
+      line-height: 20px;
+      flex-grow: 1;
+      min-width: 150px;
+    }
+
+    .icon {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      user-select: none;
+      margin-right: 12px;
+      line-height: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .dropdown-button-text_hide-mobile {
+    display: none !important;
+  }
+
+  .code-language .dropdown-button-text {
+    display: flex !important;
+  }
+}

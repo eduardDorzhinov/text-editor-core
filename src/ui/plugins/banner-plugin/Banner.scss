@@ -1,0 +1,49 @@
+/* Баннер в редакторе. Классы литеральные (не CSS-модуль), т.к. вешаются в
+   createDOM ноды. Динамические стили (фон, min-height, геометрия картинки,
+   отступы контента) считаются в @/lib/utils/bannerStyle и ставятся инлайном. */
+.tc-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  border-radius: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Слой SVG-плитки фона (fit "repeat"): под контентом, поверх цвета-заливки. */
+.tc-banner__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  svg {
+    display: block;
+  }
+}
+
+/* Боковая картинка — абсолютная, во всю высоту. Геометрия задаётся инлайном. */
+.tc-banner__image {
+  display: block;
+  user-select: none;
+  z-index: 1;
+}
+
+.tc-banner__content {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  z-index: 1;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

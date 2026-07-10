@@ -1,0 +1,117 @@
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+$shimmer: linear-gradient(
+  90deg,
+  #f0f0f0 25%,
+  #e0e0e0 37%,
+  #f0f0f0 63%
+);
+
+.shell {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+  background: #fff;
+  min-height: calc(100vh - 40px);
+}
+
+// Toolbar skeleton
+.toolbar {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0e2e5;
+  background: #fafbfc;
+  border-radius: 12px 12px 0 0;
+}
+
+.toolbarGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btnSkeleton {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: $shimmer;
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.blockSkeleton {
+  width: 100px;
+  height: 28px;
+  border-radius: 6px;
+  background: $shimmer;
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #e0e2e5;
+  margin: 0 2px;
+}
+
+// Content skeleton
+.content {
+  padding: 28px 48px 48px;
+}
+
+.lineH1 {
+  height: 28px;
+  width: 45%;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  background: $shimmer;
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.lineH2 {
+  height: 22px;
+  width: 35%;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  background: $shimmer;
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.line {
+  height: 14px;
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background: $shimmer;
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.lineShort {
+  height: 14px;
+  width: 60%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background: $shimmer;
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.spacer {
+  height: 20px;
+}

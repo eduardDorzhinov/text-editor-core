@@ -1,0 +1,44 @@
+@use "sass:list";
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($line-clamp: null) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @if $line-clamp and $line-clamp != "" and $line-clamp != null {
+    line-clamp: $line-clamp;
+    -webkit-line-clamp: $line-clamp;
+  }
+}
+
+@mixin transition($values, $base-time: 0.28s, $base-effect: ease-out) {
+  transition-duration: $base-time;
+  transition-timing-function: $base-effect;
+
+  $transitions: ();
+  @each $value in $values {
+    $transitions: list.append($transitions, $value, comma);
+  }
+  transition-property: $transitions;
+}
+
+@mixin has-hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

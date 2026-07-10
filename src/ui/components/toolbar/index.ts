@@ -1,0 +1,1 @@
+export { ToolbarPlugin } from "./Toolbar";

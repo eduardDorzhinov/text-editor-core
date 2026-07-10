@@ -1,0 +1,125 @@
+.root {
+  border: 1px dashed #ddd;
+  padding: 8px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.addButton {
+  width: 100px;
+  height: 100px;
+  flex: 0 0 auto;
+  border: 1px dashed #aaa;
+  background: transparent;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: #eee;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 auto;
+  cursor: grab;
+  // box-shadow реальной картинки + место под drop-индикатор по краю.
+  transition: transform 0.12s ease, opacity 0.12s ease;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none; // чтобы не перехватывало drag у обёртки
+  }
+}
+
+// Перетаскиваемый сейчас слайд — приглушаем, чтобы виден был сам drag-ghost.
+.dragging {
+  opacity: 0.35;
+}
+
+// Вертикальные линии-индикаторы места вставки. Слева/справа от карточки.
+.dropBefore::before,
+.dropAfter::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 3px;
+  border-radius: 2px;
+  background: #0c6291;
+}
+
+.dropBefore::before {
+  left: -6px;
+}
+
+.dropAfter::after {
+  right: -6px;
+}
+
+.overlayControls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 4px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+
+  button {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    &:disabled {
+      background: rgba(0, 0, 0, 0.3);
+      cursor: default;
+    }
+  }
+}
+
+.imageWrapper:hover .overlayControls {
+  opacity: 1;
+}
+
+.modal {
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+    object-fit: contain;
+    max-width: 90vw;
+    max-height: 80vh;
+  }
+}
