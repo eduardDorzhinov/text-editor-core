@@ -25,7 +25,7 @@ import {
   NodeKey,
 } from "lexical";
 
-import { HtmlSandbox } from "@/parser";
+import { HtmlEmbed } from "@/parser";
 import { useModal } from "@/ui/components/modal";
 
 import { CodeEditor } from "./CodeEditor";
@@ -231,7 +231,7 @@ export function HtmlComponent({ html, nodeKey }: HtmlComponentProps) {
           html ?
             (
               <div className="tc-html-block__content">
-                <HtmlSandbox html={html} />
+                <HtmlEmbed html={html} />
               </div>
             ) :
             (
@@ -247,7 +247,7 @@ export function HtmlComponent({ html, nodeKey }: HtmlComponentProps) {
   const previewPane = html ?
     (
       <div className="tc-html-block__content">
-        <HtmlSandbox html={html} />
+        <HtmlEmbed html={html} />
       </div>
     ) :
     (
